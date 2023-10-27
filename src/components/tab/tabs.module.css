@@ -1,6 +1,8 @@
 .tabs__title {
+  font-size: 1.6rem;
   margin-bottom: 1.2rem;
 }
+
 .tabs__scroller {
   position: relative;
   display: inline-block;
@@ -15,6 +17,7 @@
 
 .tabs__tab {
   flex: 1;
+  font-size: 1rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -64,4 +67,12 @@
 
 .tabs__active_content {
   padding: 1rem 0;
+}
+
+.stockContainer {
+  display: grid;
+  /* grid-template-columns: repeat(5, 1fr); */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  /* grid-template-columns:  repeat(auto-fill, minmax(min(10rem, 100%), 1fr));; */
+  gap: 1rem;
 }

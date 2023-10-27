@@ -1,21 +1,31 @@
-.priceContainer {
+.container {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
-.negativeChange {
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.price {
   font-weight: 600;
+  font-size: 2rem;
+}
+
+.percentageContainer {
+  padding: 0.4rem 0.6rem;
+  font-weight: 600;
+  font-size: 1rem;
   color: var(--color-down);
-  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
   display: flex;
+  gap: 0.2rem;
   align-items: center;
 }
 
-.positiveChange {
-  color: var(--color-up);
+.amount {
   font-weight: 600;
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
+  font-size: 1rem;
 }

@@ -26,8 +26,10 @@
 
   --primary-color: hsl(216, 100%, 40%);
   --muted: var(--neutral-500);
-  --color-up: #19af55;
-  --color-down: #d82f44;
+  --color-up: rgb(25, 175, 85);
+  --bg-up-light: rgba(25, 175, 85, 0.2);
+  --color-down: rgb(216, 47, 68);
+  --bg-down-light: rgba(216, 47, 68, 0.2);
   --destructive-color: hsl(12, 91%, 46%);
 
   --search-bar-color: var(--neutral-600);

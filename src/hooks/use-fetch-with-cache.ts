@@ -6,7 +6,7 @@ const useFetchWithCache = (
   cacheKey: string,
   expiration: number
 ) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<null | any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -28,11 +28,12 @@ const useFetchWithCache = (
     );
 
     if (cachedData && cacheExpiry && Date.now() < cacheExpiry) {
-      console.log('Sending from cache');
+      console.log('[HIT]', apiUrl);
       setData(cachedData);
       setLoading(false);
+      setError(null);
     } else {
-      console.log('Making fresh API Call');
+      console.log('[MISS]', apiUrl);
       fetch(apiUrl, {
         ...config,
         signal: controller.signal,
@@ -40,10 +41,11 @@ const useFetchWithCache = (
         .then((response) => response.json())
         .then((newData) => {
           setDataAndCache(newData);
-          setLoading(false);
         })
         .catch((error) => {
           setError(error);
+        })
+        .finally(() => {
           setLoading(false);
         });
     }

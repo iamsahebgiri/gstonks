@@ -6,11 +6,8 @@ import { site } from '@/config';
 import style from '@/styles/layout.module.css';
 import '@/styles/globals.css';
 import { ThemeProvider } from '@/app/providers';
-import SearchBar from '@/components/search-bar';
-import { ThemeToggle } from '@/components/theme-toggle';
-import Header from '@/components/header';
 
-const { title, description, name } = site;
+const { title, description } = site;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://magic-write.vercel.app'),
@@ -40,7 +37,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en" className={figtree.variable} suppressHydrationWarning>
       <body>
         <ThemeProvider>
-          <Header />
+          {/* <Header /> */}
           <main className={style.main}>{children}</main>
         </ThemeProvider>
       </body>

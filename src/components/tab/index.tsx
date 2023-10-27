@@ -15,7 +15,7 @@ interface TabMeta {
   left: number;
 }
 
-export function UserProfileTab() {
+export function TopGainerLoserTab() {
   const tabsRef = useRef<HTMLDivElement | null>(null);
   const [tabsMeta, setTabsMeta] = useState<TabMeta[]>([]);
 

@@ -1,13 +1,12 @@
 import React from 'react';
 import style from '@/styles/index.module.css';
-import { UserProfileTab } from '@/components/tab';
+import { TopGainerLoserTab } from '@/components/tab';
 
 const IndexPage = () => {
   return (
     <div className={`container`}>
       <div className={style.main}>
-        {/* <Tabs /> */}
-        <UserProfileTab />
+        <TopGainerLoserTab />
       </div>
     </div>
   );

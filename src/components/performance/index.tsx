@@ -5,9 +5,9 @@ import caretUp24Filled from '@iconify/icons-fluent/caret-up-24-filled';
 
 interface PerformanceProps {
   lowTitle: string;
-  lowValue: number;
+  lowValue: string;
   highTitle: string;
-  highValue: number;
+  highValue: string;
 }
 
 const Performance = ({

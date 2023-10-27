@@ -1,14 +1,16 @@
 'use client';
 
-import { CACHE_EXPIRATION } from '@/config';
+import { EXPIRES_IN_12HR } from '@/config';
 import useFetchWithCache from '@/hooks/use-fetch-with-cache';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Spinner } from '../spinner';
 import style from './details.module.css';
 import LineChart from '../graph';
 import { formatNumber } from '@/utils/numbers';
-import StockPrice from '../stock-price';
+
 import Performance from '../performance';
+import StockPriceToday from '../stock-price-today';
+import RecentlyViewed from '../recently-viewed';
 
 interface DetailsProps {
   symbol: string;
@@ -19,7 +21,7 @@ const Details = ({ symbol }: DetailsProps) => {
     `/api/query?function=OVERVIEW&symbol=${symbol}`,
     {},
     `GROWW_STONKS_OVERVIEW_${symbol}`,
-    CACHE_EXPIRATION
+    EXPIRES_IN_12HR
   );
 
   if (loading) {
@@ -29,6 +31,7 @@ const Details = ({ symbol }: DetailsProps) => {
   if (error) {
     return <div>Error: {error?.message}</div>;
   }
+
   const details = data.data;
 
   return (
@@ -36,55 +39,27 @@ const Details = ({ symbol }: DetailsProps) => {
       <section className={style.topSection}>
         <div className={style.exchange}>{details['Exchange']}</div>
         <div className={style.titleContainer}>
-          <h2 className={style.title}>{details['Name']}</h2>
+          <h2 className={style.mainTitle}>{details['Name']}</h2>
           <p className={style.chip}>{details['Sector']}</p>
         </div>
-        <StockPrice change_amount={10} change_percentage={10} price={20} />
+        <StockPriceToday symbol={symbol} />
       </section>
       <LineChart symbol={symbol} />
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       <section className={style.section}>
         <h1 className={style.title}>Performance</h1>
         <Performance
           lowTitle="Today's Low"
-          lowValue={3}
+          lowValue={'3'}
           highTitle="Today's High"
-          highValue={10}
+          highValue={'10'}
         />
         <Performance
           lowTitle="52W Low"
-          lowValue={3}
+          lowValue={formatNumber(details['52WeekLow'], 2)}
           highTitle="52W High"
-          highValue={10}
+          highValue={formatNumber(details['52WeekHigh'], 2)}
         />
         <div className={style.divider} />
-        {/* <div className={style.perfContainer}>
-          <div>
-            <p className={style.heading}>52W Low</p>
-            <p className={style.value}>
-              ${formatNumber(details['52WeekLow'], 2)}
-            </p>
-          </div>
-          <div className={style.perfItem}>
-            <div
-              style={{
-                width: '100%',
-                height: '6px',
-                borderRadius: '3px',
-                background: 'var(--color-up)',
-              }}
-            />
-            <Icon style={{
-              width: "200%",
-            }} icon={caretUp24Filled} />
-          </div>
-          <div>
-            <p className={style.heading}>52W High</p>
-            <p className={style.value}>
-              ${formatNumber(details['52WeekHigh'], 2)}
-            </p>
-          </div>
-        </div> */}
       </section>
 
       <section className={style.section}>
@@ -192,9 +167,7 @@ const Details = ({ symbol }: DetailsProps) => {
           </div>
         </div>
       </section>
-      <section className={style.section}>
-        <h1 className={style.title}>Recently Viewed</h1>
-      </section>
+      <RecentlyViewed />
     </div>
   );
 };

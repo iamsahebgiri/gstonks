@@ -1,12 +1,11 @@
 'use client';
 
-import { CACHE_EXPIRATION } from '@/config';
+import { EXPIRES_IN_12HR } from '@/config';
 import useFetchWithCache from '@/hooks/use-fetch-with-cache';
 import React from 'react';
 import { Spinner } from '../spinner';
 import { Line } from '@nivo/line';
 import { linearGradientDef } from '@nivo/core';
-import ReactApexChart from 'react-apexcharts';
 import style from './graph.module.css';
 import { formatNumber } from '@/utils/numbers';
 
@@ -19,7 +18,7 @@ const LineChart = ({ symbol }: LineChartProps) => {
     `/api/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol=${symbol}`,
     {},
     `GROWW_STONKS_TIME_SERIES_WEEKLY_${symbol}`,
-    CACHE_EXPIRATION
+    EXPIRES_IN_12HR
   );
 
   if (loading) {
@@ -42,12 +41,7 @@ const LineChart = ({ symbol }: LineChartProps) => {
     });
 
   return (
-    <div
-      style={{
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
+    <section>
       <Line
         width={1024}
         height={400}
@@ -131,7 +125,7 @@ const LineChart = ({ symbol }: LineChartProps) => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 
