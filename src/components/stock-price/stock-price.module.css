@@ -1,0 +1,21 @@
+.priceContainer {
+  display: flex;
+  align-items: center;
+}
+
+.negativeChange {
+  font-weight: 600;
+  color: var(--color-down);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.positiveChange {
+  color: var(--color-up);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}

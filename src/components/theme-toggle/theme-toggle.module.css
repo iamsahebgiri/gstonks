@@ -1,0 +1,9 @@
+.toggle__button {
+  outline-color: transparent;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.toggle__button:hover {
+  cursor: pointer;
+}

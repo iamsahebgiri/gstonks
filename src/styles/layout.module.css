@@ -1,0 +1,27 @@
+.header {
+  height: 64px;
+  background-color: var(--bg-header);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 2  ;
+  top: 0;
+  width: 100%;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  font-weight: 600;
+  color: white;
+  font-size: 1rem;
+}
+
+.main {
+  margin-top: 64px;
+}

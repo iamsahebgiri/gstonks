@@ -1,0 +1,20 @@
+.stockContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* grid-template-columns:  repeat(auto-fill, minmax(min(10rem, 100%), 1fr));; */
+
+  gap: 1rem;
+}
+
+.stock {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+}
+
+.ticker {
+  color: var(--neutral-500);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
