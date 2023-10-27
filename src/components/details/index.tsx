@@ -2,7 +2,7 @@
 
 import { EXPIRES_IN_12HR } from '@/config';
 import useFetchWithCache from '@/hooks/use-fetch-with-cache';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Spinner } from '../spinner';
 import style from './details.module.css';
 import LineChart from '../graph';

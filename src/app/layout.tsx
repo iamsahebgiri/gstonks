@@ -6,6 +6,7 @@ import { site } from '@/config';
 import style from '@/styles/layout.module.css';
 import '@/styles/globals.css';
 import { ThemeProvider } from '@/app/providers';
+import Header from '@/components/header';
 
 const { title, description } = site;
 
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en" className={figtree.variable} suppressHydrationWarning>
       <body>
         <ThemeProvider>
-          {/* <Header /> */}
+          <Header />
           <main className={style.main}>{children}</main>
         </ThemeProvider>
       </body>

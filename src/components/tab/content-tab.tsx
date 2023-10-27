@@ -34,7 +34,7 @@ export default function ContentTab({ id }: ContentTabProps) {
   return (
     <div className={style.stockContainer}>
       {data &&
-        data.data[id]?.map((stock) => (
+        data.data[id]?.map((stock: any) => (
           <Link
             key={stock.ticker}
             onClick={() => {
