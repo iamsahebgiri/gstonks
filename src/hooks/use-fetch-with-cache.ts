@@ -51,7 +51,6 @@ const useFetchWithCache = (
     return () => {
       controller.abort();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [apiUrl, cacheKey, expiration]);
 
   return { data, loading, error };

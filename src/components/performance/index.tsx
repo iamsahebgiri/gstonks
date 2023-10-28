@@ -24,8 +24,6 @@ const Performance = ({
       100
   );
 
-  console.log(left);
-
   return (
     <div className={style.performance}>
       <div className={style.leftContainer}>

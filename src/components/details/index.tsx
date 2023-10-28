@@ -56,7 +56,20 @@ const Details = ({ symbol }: DetailsProps) => {
   return (
     <div className={style.detailsContainer}>
       <section className={style.topSection}>
-        <div className={style.exchange}>{details['Exchange']}</div>
+        <div className={style.exchange}>
+          {new Date(globalQuote['07. latest trading day']).toLocaleDateString(
+            'en-us',
+            {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            }
+          )}
+          {' · '}
+          {details['Exchange']}
+          {' · '}
+          {details['AssetType']}
+        </div>
         <div className={style.titleContainer}>
           <h2 className={style.mainTitle}>{details['Name']}</h2>
           <p className={style.chip}>{details['Sector']}</p>
@@ -130,6 +143,7 @@ const Details = ({ symbol }: DetailsProps) => {
               <span className={style.value}>{details['ProfitMargin']}</span>
             </div>
           </div>
+          <div className={style.colDivider} />
           <div className={style.col}>
             <div className={style.stat}>
               <span className={style.heading}>Dividend Yield</span>
@@ -178,12 +192,6 @@ const Details = ({ symbol }: DetailsProps) => {
               <span className={style.value}>{details['Industry']}</span>
             </div>
           </div>
-          {/* <div className={style.col}>
-            <div className={style.item}>
-              <span className={style.heading}>Type</span>
-              <span className={style.value}>{details['AssetType']}</span>
-            </div>
-          </div> */}
           <div className={style.col}>
             <div className={style.item}>
               <span className={style.heading}>Address</span>

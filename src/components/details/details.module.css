@@ -1,5 +1,5 @@
 .detailsContainer > * + * {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 .topSection {
@@ -29,18 +29,20 @@
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: var(--text-title);
 }
 
 .exchange {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-subtitle);
-  font-weight: 600;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
 }
 
 .p {
-  line-height: 1.5;
+  text-align: justify;
+  line-height: 1.6rem;
   color: var(--text-p);
   letter-spacing: 0.01em;
 }
@@ -59,7 +61,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 0.8rem;
+  padding-bottom: 1.2rem;
 }
 
 .container .col .item {
@@ -72,19 +74,19 @@
   text-align: right;
 }
 
-.container > * + * {
+/* .container > * + * {
   border-right-width: 0px;
   border-left-width: 1px;
   border-bottom: 0px;
   border-top: 0px;
   border-style: solid;
   border-color: var(--border-color);
-  padding: 0 1.6rem;
-}
+} */
 
 .heading {
   display: inline-block;
   color: var(--text-subtitle);
+  font-size: 15px;
 }
 
 .value {
@@ -98,9 +100,6 @@
   margin-top: 0.4rem;
 }
 
-.section > * + * {
-  margin-top: 1rem;
-}
 
 .titleContainer {
   display: flex;
@@ -129,12 +128,6 @@
   font-weight: 500;
 }
 
-.p {
-  line-height: 1.5;
-  color: var(--text-title);
-  letter-spacing: 0.01em;
-}
-
 .container .heading {
   display: inline-block;
   color: var(--text-subtitle);
@@ -146,11 +139,11 @@
 }
 
 .section > * + * {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 }
 
 .divider {
   width: 100%;
-  height: 1px;
-  background-color: var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
 }
