@@ -2,6 +2,10 @@ import { useState } from 'react';
 
 const useLocalStorage = (key: string, initialValue: any) => {
   const [value, setValue] = useState(() => {
+    if (typeof window === 'undefined') {
+      return initialValue;
+    }
+
     try {
       const storedValue = localStorage.getItem(key);
       if (storedValue) {
@@ -12,7 +16,6 @@ const useLocalStorage = (key: string, initialValue: any) => {
       }
     } catch (error) {
       console.error(error);
-      localStorage.setItem(key, JSON.stringify(initialValue));
       return initialValue;
     }
   });

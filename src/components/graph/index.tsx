@@ -17,7 +17,6 @@ const LineChart = ({ symbol }: LineChartProps) => {
   const [duration, setDuration] = useState('ALL');
   const { data, loading, error } = useFetchWithCache(
     `/api/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol=${symbol}`,
-    {},
     `GROWW_STONKS_TIME_SERIES_WEEKLY_${symbol}`,
     EXPIRES_IN_12HR
   );

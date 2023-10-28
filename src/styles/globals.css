@@ -24,6 +24,7 @@
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -4px rgba(0, 0, 0, 0.1);
 
+  --background: rgb(255, 255, 255);
   --primary-color: hsl(216, 100%, 40%);
   --muted: var(--neutral-500);
   --color-up: rgb(25, 175, 85);
@@ -32,16 +33,16 @@
   --bg-down-light: rgba(216, 47, 68, 0.2);
   --destructive-color: hsl(12, 91%, 46%);
 
-  --search-bar-color: var(--neutral-600);
+  --search-bar-color: var(--neutral-100);
 
-  --bg-header: var(--neutral-800);
+  --bg-header: var(--neutral-200);
   --bg-color: var(--neutral-50);
 
   --text-title: var(--neutral-900);
   --text-subtitle: var(--neutral-600);
 
   --border-color: var(--neutral-300);
-  --icon-color: var(--neutral-50);
+  --icon-color: var(--neutral-800);
 
   --placeholder-color: var(--neutral-400);
 
@@ -66,7 +67,10 @@
   --muted: var(--neutral-500);
 
   --bg-color: var(--neutral-900);
+  --background: var(--neutral-900);
   --bg-header: hsla(222, 47%, 11%, 0.8);
+
+  --search-bar-color: var(--neutral-800);
 
   --text-title: var(--neutral-50);
   --text-subtitle: var(--neutral-300);

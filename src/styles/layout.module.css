@@ -1,12 +1,14 @@
 .header {
   height: 64px;
-  background-color: var(--bg-header);
   display: flex;
   align-items: center;
   position: fixed;
-  z-index: 2  ;
+  z-index: 2;
   top: 0;
   width: 100%;
+  background: var(--background);
+  /* backdrop-filter: saturate(180) blur(5px); */
+  border-bottom: 1px solid var(--border-color);
 }
 
 .navigation {
@@ -18,8 +20,8 @@
 
 .logo {
   font-weight: 600;
-  color: white;
-  font-size: 1rem;
+  /* color: white; */
+  font-size: 1.3rem;
 }
 
 .main {

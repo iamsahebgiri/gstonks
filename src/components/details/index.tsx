@@ -19,7 +19,6 @@ interface DetailsProps {
 const Details = ({ symbol }: DetailsProps) => {
   const { data, loading, error } = useFetchWithCache(
     `/api/query?function=OVERVIEW&symbol=${symbol}`,
-    {},
     `GROWW_STONKS_OVERVIEW_${symbol}`,
     EXPIRES_IN_12HR
   );

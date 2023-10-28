@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 const useFetchWithCache = (
   apiUrl: string,
-  config = {},
   cacheKey: string,
   expiration: number
 ) => {
@@ -35,7 +34,6 @@ const useFetchWithCache = (
     } else {
       console.log('[MISS]', apiUrl);
       fetch(apiUrl, {
-        ...config,
         signal: controller.signal,
       })
         .then((response) => response.json())

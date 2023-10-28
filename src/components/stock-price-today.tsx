@@ -11,7 +11,6 @@ interface StockPriceTodayProps {
 const StockPriceToday = ({ symbol }: StockPriceTodayProps) => {
   const { data, loading, error } = useFetchWithCache(
     `/api/query?function=GLOBAL_QUOTE&symbol=${symbol}`,
-    {},
     `GROWW_STONKS_GLOBAL_QUOTE_${symbol}`,
     EXPIRES_IN_12HR
   );
@@ -24,7 +23,7 @@ const StockPriceToday = ({ symbol }: StockPriceTodayProps) => {
     return <div>Error: {error?.message}</div>;
   }
   if (data) {
-    const globalQuote = data.data["Global Quote"];
+    const globalQuote = data.data['Global Quote'];
     const changeAmount = globalQuote['09. change'];
     const changePercentage = globalQuote['10. change percent'];
     const price = globalQuote['05. price'];

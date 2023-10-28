@@ -18,7 +18,6 @@ export default function ContentTab({ id }: ContentTabProps) {
 
   const { data, loading, error } = useFetchWithCache(
     '/api/query?function=TOP_GAINERS_LOSERS',
-    {},
     'GROWW_STONKS_TOP_GAINERS_LOSERS',
     EXPIRES_IN_12HR
   );
