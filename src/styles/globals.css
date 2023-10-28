@@ -34,12 +34,12 @@
   --destructive-color: hsl(12, 91%, 46%);
 
   --search-bar-color: var(--neutral-100);
-
-  --bg-header: var(--neutral-200);
   --bg-color: var(--neutral-50);
 
   --text-title: var(--neutral-900);
   --text-subtitle: var(--neutral-600);
+  --text-p: var(--neutral-700);
+  --search-placeholder-color: var(--neutral-400);
 
   --border-color: var(--neutral-300);
   --icon-color: var(--neutral-800);
@@ -67,13 +67,14 @@
   --muted: var(--neutral-500);
 
   --bg-color: var(--neutral-900);
-  --background: var(--neutral-900);
-  --bg-header: hsla(222, 47%, 11%, 0.8);
+  --background: black;
 
   --search-bar-color: var(--neutral-800);
 
   --text-title: var(--neutral-50);
   --text-subtitle: var(--neutral-300);
+  --text-p: var(--neutral-200);
+  --search-placeholder-color: var(--neutral-600);
 
   --border-color: var(--neutral-700);
   --icon-color: var(--neutral-100);

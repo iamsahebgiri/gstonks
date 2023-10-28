@@ -27,7 +27,7 @@
 }
 
 .searchIcon {
-  color: var(--neutral-400);
+  color: var(--search-placeholder-color);
 }
 
 .searchInput {
@@ -35,19 +35,18 @@
   height: 100%;
   background: var(--search-bar-color);
   border-radius: var(--search-radius);
-  /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); */
   padding-left: 2.5rem;
   border: transparent;
 }
 
+.searchInput::placeholder {
+  color: var(--search-placeholder-color);
+}
+
 .searchInput:focus {
-  /* border-radius: var(--search-radius) var(--search-radius) 0 0; */
   outline: transparent;
   background: var(--background);
   box-shadow: var(--shadow-lg);
-  /* border-top: 1px solid;
-  border-left: 1px solid;
-  border-right: 1px solid; */
 }
 
 .searchSuggestionBox {
@@ -96,13 +95,6 @@
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.searchPanel {
-  position: relative;
-  background-color: white;
-  max-width: 24rem;
-  margin: 0 auto;
-}
-
 .searchSuggestionEmpty {
   position: relative;
   cursor: default;
@@ -111,7 +103,7 @@
 }
 
 .searchSuggestionItem .name {
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 0.4rem;
 }
 
@@ -124,6 +116,7 @@
 .searchSuggestionItem .symbol {
   font-size: 14px;
 }
+
 .searchSuggestionItem .type {
   font-size: 14px;
   font-weight: 500;

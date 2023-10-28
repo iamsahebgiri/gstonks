@@ -22,11 +22,12 @@
 
 .heading {
   font-size: 14px;
-  color: var(--neutral-600);
+  color: var(--text-subtitle);
 }
+
 .value {
   font-weight: 600;
-  color: var(--neutral-800);
+  color: var(--text-title);
 }
 
 .leftContainer, .rightContainer {

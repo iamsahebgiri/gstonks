@@ -38,7 +38,6 @@ const SearchBar = () => {
     };
 
     if (debouncedQuery !== '') {
-      setData(null);
       console.log('[LOG] Searching for', debouncedQuery);
       fetchSearchResult();
     }
@@ -102,7 +101,7 @@ const SearchBar = () => {
               )}
               {/* {JSON.stringify(data, null, 2)} */}
               {data &&
-                data.data['bestMatches'].map((stock: any) => (
+                data?.data['bestMatches']?.map((stock: any) => (
                   <Combobox.Option
                     key={stock['1. symbol']}
                     value={stock['1. symbol']}
@@ -114,9 +113,9 @@ const SearchBar = () => {
                       }`
                     }
                   >
-                    <p className={style.name}>{stock['1. symbol']}</p>
+                    <p className={style.name}>{stock['2. name']}</p>
                     <div className={style.row}>
-                      <p className={style.symbol}>{stock['2. name']}</p>
+                      <p className={style.symbol}>{stock['1. symbol']}</p>
                       <p className={style.type}>{stock['3. type']}</p>
                     </div>
                   </Combobox.Option>

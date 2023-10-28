@@ -1,32 +1,28 @@
 export const colors = [
   {
     bg: '#FFD2CC',
-    text: '#AE2A19',
+    text: '#FF5630',
   },
   {
     bg: '#F8E6A0',
-    text: '#7F5F01',
+    text: '#FFAB00',
   },
   {
     bg: '#BAF3DB',
-    text: '#216E4E',
+    text: '#36B37E',
   },
   {
     bg: '#C1F0F5',
-    text: '#206B74',
+    text: '#00B8D9',
   },
   {
     bg: '#CCE0FF',
-    text: '#0055CC',
+    text: '#0052CC',
   },
   {
     bg: '#DFD8FD',
-    text: '#5E4DB2',
-  },
-  {
-    bg: '#FDD0EC',
-    text: '#943D73',
-  },
+    text: '#6554C0',
+  }
 ];
 
 export function getColor(symbol?: string) {
