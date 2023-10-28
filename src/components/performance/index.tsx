@@ -8,6 +8,7 @@ interface PerformanceProps {
   lowValue: string;
   highTitle: string;
   highValue: string;
+  currentPrice: string;
 }
 
 const Performance = ({
@@ -15,7 +16,16 @@ const Performance = ({
   lowValue,
   highTitle,
   highValue,
+  currentPrice,
 }: PerformanceProps) => {
+  const left = Math.floor(
+    ((Number(currentPrice) - Number(lowValue)) /
+      (Number(highValue) - Number(lowValue))) *
+      100
+  );
+
+  console.log(left);
+
   return (
     <div className={style.performance}>
       <div className={style.leftContainer}>
@@ -27,7 +37,7 @@ const Performance = ({
         <Icon
           className={style.icon}
           style={{
-            left: 20,
+            left: Number.isSafeInteger(left) ? `${left}%` : '0%',
           }}
           icon={caretUp24Filled}
         />

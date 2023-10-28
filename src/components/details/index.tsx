@@ -9,8 +9,8 @@ import LineChart from '../graph';
 import { formatNumber } from '@/utils/numbers';
 
 import Performance from '../performance';
-import StockPriceToday from '../stock-price-today';
 import RecentlyViewed from '../recently-viewed';
+import StockPrice from '../stock-price';
 
 interface DetailsProps {
   symbol: string;
@@ -23,15 +23,35 @@ const Details = ({ symbol }: DetailsProps) => {
     EXPIRES_IN_12HR
   );
 
-  if (loading) {
+  const {
+    data: globalQuoteData,
+    loading: globalQuoteLoading,
+    error: globalQuoteError,
+  } = useFetchWithCache(
+    `/api/query?function=GLOBAL_QUOTE&symbol=${symbol}`,
+    `GROWW_STONKS_GLOBAL_QUOTE_${symbol}`,
+    EXPIRES_IN_12HR
+  );
+
+  if (loading || globalQuoteLoading) {
     return <Spinner />;
   }
 
-  if (error) {
+  if (error || globalQuoteError) {
     return <div>Error: {error?.message}</div>;
   }
 
   const details = data.data;
+
+  const globalQuote = globalQuoteData.data['Global Quote'];
+  const changeAmount = globalQuote['09. change'];
+  const changePercentage = globalQuote['10. change percent'];
+  const price = globalQuote['05. price'];
+
+  console.log({ globalQuote });
+
+  const payoutRatio =
+    Math.floor((details['DividendPerShare'] / details['EPS']) * 100) / 100;
 
   return (
     <div className={style.detailsContainer}>
@@ -41,22 +61,28 @@ const Details = ({ symbol }: DetailsProps) => {
           <h2 className={style.mainTitle}>{details['Name']}</h2>
           <p className={style.chip}>{details['Sector']}</p>
         </div>
-        <StockPriceToday symbol={symbol} />
+        <StockPrice
+          change_amount={changeAmount}
+          change_percentage={changePercentage}
+          price={price}
+        />
       </section>
       <LineChart symbol={symbol} />
       <section className={style.section}>
         <h1 className={style.title}>Performance</h1>
         <Performance
           lowTitle="Today's Low"
-          lowValue={'3'}
+          lowValue={formatNumber(globalQuote['04. low'], 2)}
           highTitle="Today's High"
-          highValue={'10'}
+          highValue={formatNumber(globalQuote['03. high'], 2)}
+          currentPrice={globalQuote['05. price']}
         />
         <Performance
           lowTitle="52W Low"
           lowValue={formatNumber(details['52WeekLow'], 2)}
           highTitle="52W High"
           highValue={formatNumber(details['52WeekHigh'], 2)}
+          currentPrice={globalQuote['05. price']}
         />
         <div className={style.divider} />
       </section>
@@ -134,9 +160,9 @@ const Details = ({ symbol }: DetailsProps) => {
             <div className={style.stat}>
               <span className={style.heading}>Payout Ratio</span>
               <span className={style.value}>
-                {Math.floor(
-                  (details['DividendPerShare'] / details['EPS']) * 100
-                ) / 100}
+                {Number.isNaN(payoutRatio) || Number.isFinite(payoutRatio)
+                  ? payoutRatio
+                  : 'NA'}
               </span>
             </div>
           </div>

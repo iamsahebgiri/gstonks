@@ -17,6 +17,7 @@
 }
 .icon {
   position: absolute;
+  color: var(--text-subtitle);
   /* left: -1%; */
 }
 
