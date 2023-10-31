@@ -48,8 +48,6 @@ const Details = ({ symbol }: DetailsProps) => {
   const changePercentage = globalQuote['10. change percent'];
   const price = globalQuote['05. price'];
 
-  console.log({ globalQuote });
-
   const payoutRatio =
     Math.floor((details['DividendPerShare'] / details['EPS']) * 100) / 100;
 

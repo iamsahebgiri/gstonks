@@ -1,3 +1,4 @@
+import { EXPIRES_IN_24HR } from '@/config';
 import { type NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
@@ -14,6 +15,7 @@ export async function GET(request: NextRequest) {
 
   const url = 'https://www.alphavantage.co/query?' + searchParams.toString();
   const res = await fetch(url, {
+    next: { revalidate: EXPIRES_IN_24HR },
     headers: {
       'Content-Type': 'application/json',
     },

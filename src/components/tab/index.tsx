@@ -45,7 +45,7 @@ export function TopGainerLoserTab() {
   return (
     <>
       <h2 className={style.tabs__title}>
-        {tabs.findLast((tab) => tab.id == activeTab)?.label}
+        {tabs.find((tab) => tab.id == activeTab)?.label}
       </h2>
       <div className={style.tabs__scroller}>
         <div className={style.tabs__container} ref={tabsRef}>
